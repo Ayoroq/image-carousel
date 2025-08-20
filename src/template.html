@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Carousel</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="/src/reset.css" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="carousel">
+        <button class="carousel-control prev">Previous</button>
+        <div data-id="1" class="carousel-item active">
+          <img src="/assets/man.jpg" alt="Image 1" />
+        </div>
+        <div data-id="2" class="carousel-item">
+          <img src="/assets/mod.jpg" alt="Image 2" />
+        </div>
+        <div data-id="3" class="carousel-item">
+          <img src="/assets/res.jpg" alt="Image 3" />
+        </div>
+        <div data-id="4" class="carousel-item">
+          <img src="/assets/tower.jpg" alt="Image 4" />
+        </div>
+        <div data-id="5" class="carousel-item">
+          <img src="/assets/wpt.jpg" alt="Image 5" />
+        </div>
+        <button class="carousel-control next">Next</button>
+      </div>
+    </main>
+  </body>
 </html>
