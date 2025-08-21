@@ -4,25 +4,32 @@ const prevBtn = document.querySelector('#prevBtn');
 
 // get the carousel images
 const images = document.querySelectorAll('.carousel img');
+const dots = document.querySelectorAll('.dot');
 
-// to loop through the images and show the current image
+
+// function to loop through the dots and images to show the current dot and image
 let currentIndex = 0;
 
-function updateImage() {
+function updateImagesAndDots() {
   images.forEach((img, index) => {
     img.classList.toggle('hidden', index !== currentIndex);
   });
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentIndex);
+  });
 }
+
+
 // function to show the next image
 function nextImage() {
   currentIndex = (currentIndex + 1) % images.length;
-  updateImage();
+  updateImagesAndDots();
 }
 
 // function to show the previous image
 function prevImage() {
   currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateImage();
+  updateImagesAndDots();
 }
 
 // add event listeners to the buttons
@@ -30,7 +37,7 @@ nextBtn.addEventListener('click', nextImage);
 prevBtn.addEventListener('click', prevImage);
 
 // initialize the first image
-updateImage();
+updateImagesAndDots();
 
 // function to update the displayed image after 5 seconds
 // setInterval(() => {
