@@ -32,9 +32,21 @@ function prevImage() {
   updateImagesAndDots();
 }
 
+// function to switch to a specific image when a dot is clicked
+function dotClick(index) {
+  currentIndex = index;
+  updateImagesAndDots();
+}
+
 // add event listeners to the buttons
 nextBtn.addEventListener('click', nextImage);
 prevBtn.addEventListener('click', prevImage);
+// add event listeners to the dots
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    dotClick(index);
+  });
+});
 
 // initialize the first image
 updateImagesAndDots();
