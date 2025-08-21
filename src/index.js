@@ -7,7 +7,7 @@ const images = document.querySelectorAll('.carousel img');
 
 // to loop through the images and show the current image
 let currentIndex = 0;
-// function to update the displayed image
+
 function updateImage() {
   images.forEach((img, index) => {
     img.classList.toggle('hidden', index !== currentIndex);
@@ -32,3 +32,7 @@ prevBtn.addEventListener('click', prevImage);
 // initialize the first image
 updateImage();
 
+// function to update the displayed image after 5 seconds
+setInterval(() => {
+  nextImage();
+}, 5000);
