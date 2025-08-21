@@ -52,7 +52,7 @@ dots.forEach((dot, index) => {
 // initialize the first image
 function initializeCarousel() {
   updateImagesAndDots();
-  //setInterval(nextImage, 5000);
+  setInterval(nextImage, 5000);
 }
 
 initializeCarousel();
