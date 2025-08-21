@@ -8,33 +8,33 @@ const dots = document.querySelectorAll('.dot');
 
 
 // function to loop through the dots and images to show the current dot and image
-let currentIndex = 0;
+let currentImageIndex = 0;
 
 function updateImagesAndDots() {
   images.forEach((img, index) => {
-    img.classList.toggle('hidden', index !== currentIndex);
+    img.classList.toggle('hidden', index !== currentImageIndex);
   });
   dots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentIndex);
+    dot.classList.toggle('active', index === currentImageIndex);
   });
 }
 
 
 // function to show the next image
 function nextImage() {
-  currentIndex = (currentIndex + 1) % images.length;
+  currentImageIndex = (currentImageIndex + 1) % images.length;
   updateImagesAndDots();
 }
 
 // function to show the previous image
 function prevImage() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
   updateImagesAndDots();
 }
 
 // function to switch to a specific image when a dot is clicked
 function dotClick(index) {
-  currentIndex = index;
+  currentImageIndex = index;
   updateImagesAndDots();
 }
 
@@ -49,9 +49,9 @@ dots.forEach((dot, index) => {
 });
 
 // initialize the first image
-updateImagesAndDots();
+function initializeCarousel() {
+  updateImagesAndDots();
+  setInterval(nextImage, 5000);
+}
 
-// function to update the displayed image after 5 seconds
-// setInterval(() => {
-//   nextImage();
-// }, 5000);
+initializeCarousel();
