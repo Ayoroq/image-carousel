@@ -1,3 +1,45 @@
-.hidden{
-    display: none;
+.hidden {
+  display: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 3rem;
+  flex: 0.25;
+}
+
+.carousel-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  margin-bottom: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  width: 100%;
+  height: 400px;
+  flex: 1;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fade-out-element {
+  opacity: 1; /* Initial state: fully visible */
+  transition: opacity 5s ease-in-out; /* Transition for opacity over 0.5 seconds */
+}
+
+.fade-out-element.hide {
+  opacity: 0; /* Target state: fully transparent */
 }

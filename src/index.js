@@ -1,39 +1,34 @@
-// get all carousel items
-const imageList = [
-  "/assets/man.jpg",
-  "/assets/mod.jpg",
-  "/assets/res.jpg",
-  "/assets/tower.jpg",
-  "/assets/wpt.jpg",
-];
+// get the next and previous buttons
+const nextBtn = document.querySelector('#nextBtn');
+const prevBtn = document.querySelector('#prevBtn');
 
-const transitionTime = 5000; // time in milliseconds
-const totalImages = imageList.length;
-let i = 0;
+// get the carousel images
+const images = document.querySelectorAll('.carousel img');
 
-function addImageToCarousel(src) {
-  const img = document.createElement("img");
-  img.src = src;
-  document.querySelector(".carousel").appendChild(img);
+// to loop through the images and show the current image
+let currentIndex = 0;
+// function to update the displayed image
+function updateImage() {
+  images.forEach((img, index) => {
+    img.classList.toggle('hidden', index !== currentIndex);
+  });
+}
+// function to show the next image
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateImage();
 }
 
-function removeImageFromCarousel() {
-  const carousel = document.querySelector(".carousel");
-  if (carousel.firstChild) {
-    carousel.removeChild(carousel.firstChild);
-  }
+// function to show the previous image
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateImage();
 }
 
-async function cycleImages(imageList, transitionTime) {
-  do {
-    for (let j = 0; j < totalImages; j++) {
-      addImageToCarousel(imageList[j]);
-      await new Promise(resolve => setTimeout(resolve, transitionTime));
-      removeImageFromCarousel();
-    }
-  } while (2 > 1); // infinite loop for demonstration purposes
-}
+// add event listeners to the buttons
+nextBtn.addEventListener('click', nextImage);
+prevBtn.addEventListener('click', prevImage);
 
-// start the carousel
-cycleImages(imageList, transitionTime);
+// initialize the first image
+updateImage();
 
