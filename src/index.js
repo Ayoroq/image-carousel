@@ -33,6 +33,6 @@ prevBtn.addEventListener('click', prevImage);
 updateImage();
 
 // function to update the displayed image after 5 seconds
-setInterval(() => {
-  nextImage();
-}, 5000);
+// setInterval(() => {
+//   nextImage();
+// }, 5000);
