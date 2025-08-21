@@ -23,6 +23,7 @@ function updateImagesAndDots() {
 // function to show the next image
 function nextImage() {
   currentImageIndex = (currentImageIndex + 1) % images.length;
+  const image = images[currentImageIndex];
   updateImagesAndDots();
 }
 
@@ -51,7 +52,7 @@ dots.forEach((dot, index) => {
 // initialize the first image
 function initializeCarousel() {
   updateImagesAndDots();
-  setInterval(nextImage, 5000);
+  //setInterval(nextImage, 5000);
 }
 
 initializeCarousel();
